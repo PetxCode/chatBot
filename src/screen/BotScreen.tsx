@@ -21,6 +21,7 @@ const BotScreen = () => {
   );
 
   const handleSubmit = async (e: any) => {
+    scrollToBottom();
     setLoading(true);
     e.preventDefault();
 
@@ -63,7 +64,7 @@ const BotScreen = () => {
   return (
     <div>
       <div className="fixed right-2 bottom-0 m-2 ">
-        {toggle ? (
+        {!toggle ? (
           <div className="rounded-full p-2 text-[35px] bg-stone-100 cursor-pointer">
             <div className=" mb-[2px] ml-[1px]">
               <FaRobot onClick={() => setToggle(!toggle)} />
@@ -133,7 +134,7 @@ const BotScreen = () => {
                 </div>
               ) : (
                 <input
-                  placeholder="type your search"
+                  placeholder="want to know more about Data2Bots?"
                   className="h-[96%] w-[90%] outline-none bg-transparent pl-2"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
