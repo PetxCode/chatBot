@@ -42,6 +42,12 @@ npm run dev
 
 This project is deployed on Firebase-Hosting infrastructure
 
+## WATCH VIDEO DEMO
+
+<!-- https://youtu.be/Afcxpl0U0Qc -->
+
+[![Data2Bots ChatBot Demo ](https://img.youtube.com/vi/Afcxpl0U0Qc/0.jpg)](https://www.youtube.com/watch?v=Afcxpl0U0Qc)
+
 ## Built With
 
 - [ReactJS](https://react.dev) - The web framework used
