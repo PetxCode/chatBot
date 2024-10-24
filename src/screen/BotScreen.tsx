@@ -1,17 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { iChat } from "../utils/interfaces";
+import { fetchLLMModel } from "../API/APICall";
 import { FaRobot, FaSpinner } from "react-icons/fa";
-import { IoSendSharp } from "react-icons/io5";
 import { MdClose, MdPerson, MdRefresh } from "react-icons/md";
+import { IoSendSharp } from "react-icons/io5";
 
-interface iChat {
-  id: string;
-  message: string;
-  user: string;
-  createdAt: Date;
-}
+const BotScreen = () => {
+  const messagesEndRef: any = useRef(null);
 
-const HomeScreen = () => {
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const [toggle, setToggle] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -33,49 +33,36 @@ const HomeScreen = () => {
 
     localStorage.setItem("chat", JSON.stringify([...data, chat]));
 
-    const options = {
-      method: "POST",
-      url: "https://infinite-gpt.p.rapidapi.com/infinite-gpt",
-      headers: {
-        "x-rapidapi-key": "fea8807c42msh7739ec3a98c1b89p13ea46jsn115d1624b5f0",
-        "x-rapidapi-host": "infinite-gpt.p.rapidapi.com",
-        "Content-Type": "application/json",
-      },
-      data: {
-        query: text,
-        sysMsg: text,
-      },
-    };
+    fetchLLMModel(text)
+      .then((res: any) => {
+        if (res.status === 200) {
+          let botChat = {
+            id: Math.random().toString(36).substr(2, 9),
+            message: res?.data?.msg,
+            user: "bot",
+            createdAt: new Date(),
+          };
 
-    setText("");
-    try {
-      const response = await axios.request(options);
-
-      let botChat = {
-        id: Math.random().toString(36).substr(2, 9),
-        message: response?.data?.msg,
-        user: "bot",
-        createdAt: new Date(),
-      };
-
-      let result = JSON.parse(localStorage.getItem("chat")!);
-      localStorage.setItem("chat", JSON.stringify([...result, botChat]));
-      setData([...result, botChat]);
-
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
+          let result = JSON.parse(localStorage.getItem("chat")!);
+          localStorage.setItem("chat", JSON.stringify([...result, botChat]));
+          setData([...result, botChat]);
+          setLoading(false);
+          setText("");
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+        setText("");
+      });
   };
 
-  useEffect(() => {}, [data]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [data]);
 
   return (
-    <div className="relative min-h-[calc(100vh-140px)] bg-stone-100 m-2 border rounded-md p-2">
-      <div>start here</div>
-
-      <div className="absolute right-0 bottom-0 m-2 ">
+    <div>
+      <div className="fixed right-2 bottom-0 m-2 ">
         {toggle ? (
           <div className="rounded-full p-2 text-[35px] bg-stone-100 cursor-pointer">
             <div className=" mb-[2px] ml-[1px]">
@@ -118,7 +105,7 @@ const HomeScreen = () => {
                         <div className="rounded-md font-[300] italic flex flex-col mb-2 p-2 bg-red-50">
                           <div className="flex items-center mb-2">
                             <FaRobot className="text-[30px] mr-[5px]" />
-                            <span>Chatbot</span>
+                            <span>Data2Bots</span>
                           </div>
                           <div>
                             <div>{props?.message}</div>
@@ -128,6 +115,7 @@ const HomeScreen = () => {
                     </div>
                   )
                 )}
+                <div ref={messagesEndRef} />
               </div>
             </div>
 
@@ -165,4 +153,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default BotScreen;
