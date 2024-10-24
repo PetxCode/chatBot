@@ -1,56 +1,87 @@
-### 3. Structuring Your README
+# Project Title
 
-Now that you have the Markdown basics down, let's structure your README:
+One Paragraph of project description goes here
 
-#### Project Description
+## Getting Started
 
-Start with a brief project description, including its purpose and key features.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-#### Installation
+### Prerequisites
 
-Provide clear instructions on how to install your project, including any prerequisites.
+What things you need to install the software and how to install them
 
-#### Usage
+```
+Give examples
+```
 
-Explain how to use your project, including code examples if applicable.
+### Installing
 
-#### Features
+A step by step series of examples that tell you how to get a development env running
 
-List the main features or functionalities of your project.
+Say what the step will be
 
-#### Contributing
+```
+Give the example
+```
 
-Invite others to contribute and explain how they can do so.
+And repeat
 
-#### License
+```
+until finished
+```
 
-Specify the project's license to clarify how others can use your code.
+End with an example of getting some data out of the system or using it for a little demo
 
-### 4. Enhancing Your README
+## Running the tests
 
-#### Badges
+Explain how to run the automated tests for this system
 
-Add badges to display information like build status, version, or license.
-These badges can be generated from services like shields.io or Travis CI.
+### Break down into end to end tests
 
-#### Screenshots and GIFs
+Explain what these tests test and why
 
-Include screenshots or GIFs to visually represent your project's interface or
-functionality.
+```
+Give an example
+```
 
-#### Documentation
+### And coding style tests
 
-Provide links to detailed documentation if available.
+Explain what these tests test and why
 
-#### Changelog
+```
+Give an example
+```
 
-Keep a changelog in your README to track version history and updates.
+## Deployment
 
-### 5. Conclusion
+Add additional notes about how to deploy this on a live system
 
-A well-crafted README.md is a testament to your skills as a software engineer.
-It not only helps others understand your project but also encourages collaboration and adoption.
-Keep it up, and your projects will thrive in the tech world!
+## Built With
 
-Remember, practice makes perfect, so keep refining your READMEs, and you'll undoubtedly
-become a better software engineer by the end of this year. Happy coding! 😊🚀
+- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+- [Maven](https://maven.apache.org/) - Dependency Management
+- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+## Authors
+
+- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
