@@ -53,8 +53,6 @@ This project is deployed on Firebase-Hosting infrastructure
 
 - **Peter Oti** - _Full Stack Software Developer_ -
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details and special thanks to InfinityGTP for making their API available on RapidAPI
