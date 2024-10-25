@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 :root {
-  font-family: PolySans, Median, Poppins, Inter, system-ui, Avenir, Helvetica,
-    Arial, sans-serif;
+  font-family: Dinot, Poppins, PolySans, Median, Inter, system-ui, Avenir,
+    Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+}
+
+@font-face {
+  font-family: "Dinot";
+  src: url("./assets/font/dinot.ttf");
 }
 
 /* Customizing scrollbar */

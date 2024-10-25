@@ -4,6 +4,7 @@ import { fetchLLMModel } from "../API/APICall";
 import { FaRobot, FaSpinner } from "react-icons/fa";
 import { MdClose, MdPerson, MdRefresh } from "react-icons/md";
 import { IoSendSharp } from "react-icons/io5";
+import toast, { Toaster } from "react-hot-toast";
 
 const BotScreen = () => {
   const messagesEndRef: any = useRef(null);
@@ -49,6 +50,8 @@ const BotScreen = () => {
           setData([...result, botChat]);
           setLoading(false);
           setText("");
+        } else {
+          toast.error("API daily usage has been exhausted!!!");
         }
       })
       .finally(() => {
@@ -63,6 +66,7 @@ const BotScreen = () => {
 
   return (
     <div>
+      <Toaster />
       <div className="fixed right-2 bottom-0 m-2 ">
         {!toggle ? (
           <div className="rounded-full p-2 text-[35px] bg-stone-100 cursor-pointer">
